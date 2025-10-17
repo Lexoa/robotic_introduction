@@ -1,0 +1,38 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.nav
+*.snm
+*.vrb
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.pdf_tex
+*.dvi
+*.ps
+
+# LaTeX temporary files
+*.lot
+*.lof
+*.idx
+*.ind
+*.ilg
+*.glo
+*.gls
+
+# Beamer specific
+*.thm
+
+# Editor temporary files
+*~
+*.swp
+*.swo
+.DS_Store
+
+# Build directories
+build/
+output/
