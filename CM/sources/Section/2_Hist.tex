@@ -1,0 +1,112 @@
+\section{La robotique à travers le temps}
+
+% \begin{frame}{Plan de la section}
+%     \begin{enumerate}
+%         \item Le développement de la robotique industrielle (1950-1990)
+%         \item La diversification des applications (1990-2010)
+%         \item La robotique collaborative et l'IA (2010-aujourd'hui)
+%         \item Normes et sécurité
+%     \end{enumerate}
+% \end{frame}
+
+\begin{frame}{Le développement de la robotique industrielle}
+    \begin{columns}
+        \begin{column}{0.58\textwidth}
+            \begin{itemize}
+                \item<1-> \textbf{1961} : Unimate, premier robot industriel commercialisé (General Motors)
+                \item<2-> \textbf{1973} : 1\textsuperscript{er} robot 6 axes Famulus (KUKA)
+                \item<3-> \textbf{1985} : 1\textsuperscript{er} robot delta
+                \item<4-> \textbf{2015} : Arrivée des robots collaboratifs
+            \end{itemize}
+        \end{column}
+        
+        \begin{column}{0.38\textwidth}
+            \begin{figure}
+                \centering
+                \only<1>{\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{Pictures/History/unimate.jpg}}
+                \only<2>{\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{Pictures/History/famulus.jpg}}
+                \only<3>{\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{Pictures/History/delta.jpg}}
+                \only<4>{\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{Pictures/ur5.png}}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{La robotique collaborative}
+    
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+            \textbf{Les cobots (robots collaboratifs)}
+            \begin{itemize}
+                \item 2008 : Universal Robots UR5 (pionnier)
+                \item Légers et sûrs pour travailler avec les humains
+                \item Programmation intuitive
+                \item Flexibles et réutilisables
+            \end{itemize}
+            
+            \vspace{0.5em}
+            
+            \textbf{Autres applications collaboratives}
+            \begin{itemize}
+                \item Exosquelettes pour assistance physique
+                \item Robots de rééducation
+                \item Robots de service (hôtellerie, logistique)
+            \end{itemize}
+        \end{column}
+        
+        \begin{column}{0.42\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{Pictures/ur5.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Robotique et Intelligence Artificielle}
+    
+    \begin{itemize}[<+->]
+        \item \textbf{Apprentissage par démonstration}
+        \begin{itemize}
+            \item Le robot apprend en observant l'humain
+            \item Réduction du temps de programmation
+        \end{itemize}
+        
+        \item \textbf{Apprentissage par renforcement}
+        \begin{itemize}
+            \item Le robot apprend par essai-erreur
+            \item Adaptation à des tâches complexes
+            \item Peut être simulé
+        \end{itemize}
+        
+        \item \textbf{VLA}
+        \begin{itemize}
+            \item Utilisation de LLM pour la comprehension de tâches
+            \item Prise en charge de la Vision
+            \item Apprentissage via démonstrations
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Les normes et la sécurité}
+    \framesubtitle{Encadrement de la robotique}
+    
+    \begin{exampleblock}{Principales normes}
+        \begin{itemize}
+            \item \textbf{ISO 10218-1/2} : Robots industriels - Exigences de sécurité
+            \item \textbf{ISO/TS 15066} : Robots collaboratifs - Spécifications de sécurité
+            \item \textbf{ISO 13482} : Robots de service - Exigences de sécurité
+        \end{itemize}
+    \end{exampleblock}
+    
+    \vspace{0.5em}
+    
+    \textbf{Principes clés :}
+    \begin{itemize}
+        \item Analyse des risques
+        \item Limitation de force et de puissance pour les cobots
+        \item Systèmes de sécurité (arrêts d'urgence, barrières)
+        \item Formation des opérateurs
+        \item Maintenance préventive
+    \end{itemize}
+\end{frame}

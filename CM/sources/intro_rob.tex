@@ -1,0 +1,74 @@
+% /home/alexis/git/robotic_introduction/CM/sources/intro_rob.tex
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning}
+\usepackage{booktabs}
+
+\usepackage{ulem}
+
+\title[Introduction à la robotique]{Introduction à la robotique}
+\subtitle{De la robotique industriel à la cobotique}
+\author{Alexis Boulay \\ \texttt{alexis.boulay@inria.fr}}
+\date{2025/10/06}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+
+\begin{frame}{Détail de l'enseignement}
+    \center
+    
+    \centering
+    {
+    \setlength{\tabcolsep}{12pt}%
+    \renewcommand{\arraystretch}{1.6}%
+    \begin{tabular}{@{} l c l @{}}
+    \midrule
+    CM & 2\,h & Introduction à la robotique \\
+    TD & 4\,h & Modélisation robotique pour la commande \\
+    TP & 12\,h & Programmation robotique d'un UR5 \\
+    \bottomrule
+    \end{tabular}
+    }
+    \vspace{0.7em}
+    \pause
+    \begin{block}{Objectif du cours}
+        \sout{Faire de vous des roboticien·ne·s}
+
+        Pouvoir discuter avec des roboticien·ne·s et intéragir avec des robots.        
+    \end{block}
+
+    \pause
+    \begin{alertblock}{Evaluation}    \begin{itemize}
+            \item Rapport de TP 
+            \item Examen écrit (2H)
+        \end{itemize}
+    \end{alertblock}
+
+\end{frame}
+
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+
+\input{Section/1_Def.tex}
+
+\input{Section/2_Hist.tex}
+
+\input{Section/3_Actualite.tex}
+
+\input{Section/4_Robotique.tex}
+
+\end{document}

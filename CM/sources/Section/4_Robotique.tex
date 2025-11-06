@@ -1,0 +1,152 @@
+\section{Les problématiques de la robotique}
+
+% \begin{frame}{Résumé}
+%     \begin{itemize}
+%         \item Différencier les acteurs de la robotique: de la conception à l'intégration en passant par la commande (Vincent à une slide sur les problèmes de la robotique)
+%         \item zoom sur ce qui va nous intéresser la modélisation géométrique et cinématique, programmation et les différentes méthodes d'utilisation de la robotique.
+%     \end{itemize}
+% \end{frame}
+
+\begin{frame}{Problématiques de la robotique}
+    \begin{itemize}[<+->]
+        \item \alert<1>{Conception (mécanique et mécatronique) -- typologie, morphologie, DoFs, dimensionnement}
+        \item \alert<2>{Identification et calibration -- hors ligne et en ligne}
+        \item \alert<3>{Perception et estimation de l'état -- usages de capteurs internes et externes}
+        \item \alert<4>{Planification de trajectoire -- hors ligne et en ligne}
+        \item \alert<5>{Commande -- compromis robustesse/performance/sécurité}
+        \item \alert<6>{Interaction humain-robot -- tâche partagée, apprentissage par démonstration\ldots}
+        \item \alert<7>{Intégration dans un environnement industriel}
+        \item \alert<8>{Process métier, outillage}
+        \item \alert<9>{\ldots}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Zoom sur la commande}
+    \framesubtitle{Boucle de commande d'un robot}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{Pictures/commande.png}
+    \end{figure}
+
+    \begin{itemize}
+        \item Dépendance au robot : pas accès au même type de commande et de mesures.
+        \item Dépendance à la tâche : pas les mêmes besoins en terme de contrôle.
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Zoom sur la commande}
+    \framesubtitle{Passage du monde cartésien au monde articulaire}
+
+    \begin{exampleblock}{Modèle géométrique directe}
+        Permet de passer d'une position articulaire ($\mathbb{R}^n$, avec $n$ le nombre d'articulations) à une position cartésienne ($\mathbb{R}^6$).
+    \end{exampleblock}
+
+    \begin{minipage}
+        {0.45\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{Pictures/3R.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}
+        {0.45\textwidth}
+        Espace articulaire : \textcolor{blue}{$(q_1, q_2, q_3)$} $\in \mathbb{R}^3$
+
+        Espace cartésien : $\begin{Bmatrix}\begin{pmatrix}x_{EE} \\ y_{EE} \\ \theta_{EE}\end{pmatrix}_{w} R_{EE\in w}\end{Bmatrix}$
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{Zoom sur la commande}
+    \framesubtitle{Passage du monde articulaire au monde cartésien}
+
+    \begin{exampleblock}{Modèle géométrique indirecte}
+        Permet de passer d'une position cartésienne ($\mathbb{R}^6$) à une position articulaire ($\mathbb{R}^n$, avec $n$ le nombre d'articulations).
+    \end{exampleblock}
+
+    \begin{minipage}
+        {0.45\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{Pictures/3R.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}
+        {0.45\textwidth}
+        
+        Il est nécessaire de bien définir nos repères pour définir la position cartésienne.
+        Il existe plusieurs conventions (nous verrons Denavit-Hartenberg en TD).
+
+    \end{minipage}
+
+Plus utile pour la commande, mais plus compliqué à calculer.
+\end{frame}
+
+
+\begin{frame}{Zoom sur la commande}
+
+    \begin{exampleblock}{Modèle cinématique}
+        Fait le lien entre vitesse articulaire et vitesse cartésienne.
+    \end{exampleblock}
+
+    \vspace{0.5cm}
+
+    \begin{minipage}
+        {0.45\textwidth}
+        \centering
+        \includegraphics[width=0.4\textwidth]{Pictures/3R_cin.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}
+        {0.45\textwidth}
+
+        $\dot{\mathbf{X}} = \mathbf{J}(\mathbf{q}) \dot{\mathbf{q}}$
+
+        La matrice $\mathbf{J}(\mathbf{q})$ est appelé la jacobienne du robot.
+
+        $\mathbf{J}$ inversible $\Rightarrow$ on peut faire du contrôle en vitesse.
+
+        $\mathbf{J} $ non inversible $\Rightarrow$ on est en présence de singularités.
+    \end{minipage}
+
+    \pause
+    \vspace{0.5cm}
+
+    \begin{exampleblock}{Modèle dynamique}
+        Passer de forces/torques cartésiennes à des couples articulaires.
+    \end{exampleblock}
+
+\end{frame}
+    
+
+\begin{frame}{Zoom sur la planification}
+    \framesubtitle{Génération de trajectoire}
+
+    \begin{columns}
+        \begin{column}{0.48\textwidth}
+            \small
+            \textbf{Cas 1 : Planification automatique}
+            Peut être fait hors ligne ou en ligne.
+            \begin{enumerate}
+                \item Cible cartésienne
+                \item Algorithme (RRT, A*, etc.)
+                \item Conversion articulaire
+            \end{enumerate}
+            
+            \vspace{0.5em}
+            
+            \textbf{Cas 2 : Programmation manuelle}
+            Hors ligne uniquement, plus courant en industrie
+            \begin{enumerate}
+                \item Enregistrement de configurations/trajectoires articulaires
+                \item Rejeu de la trajectoire
+            \end{enumerate}
+        \end{column}
+
+        \begin{column}{0.48\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{Pictures/RRT.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}

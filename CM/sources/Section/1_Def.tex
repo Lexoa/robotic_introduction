@@ -1,0 +1,204 @@
+\section{Qu'est-ce qu'un robot ?}
+
+% \begin{frame}{Résumé}
+%     \begin{enumerate}
+%         \item Montrer plein de robot différents, demander de définir ce qu'est un robot
+%         \item exemple perso quand je cherchais un emploi beaucoup de proposition de faire des chatbots.
+%         \item Différencier automate et robot, donner les différentes définition ethymologique et préciser qu'il y a pas de définition forcément fixe
+%         \item Donner les caractéristque d'un robot : degrés de liberté, type d'actionneur, link, EE, précision, répétabilité, charge de travail.
+%     \end{enumerate}
+% \end{frame}
+
+
+\begin{frame}{Qu'est-ce qu'un robot ?}
+
+    \begin{figure}
+        \centering
+        \scriptsize
+        \begin{tabular}{@{}c@{\hspace{0.05cm}}c@{\hspace{0.05cm}}c@{\hspace{0.05cm}}c@{\hspace{0.05cm}}c@{}}
+            \includegraphics[width=0.17\textwidth,height=0.18\textheight,keepaspectratio]{Pictures/Robots/spot.jpg} &
+            \includegraphics[width=0.17\textwidth,height=0.18\textheight,keepaspectratio]{Pictures/Robots/kuka.jpg} &
+            \includegraphics[width=0.17\textwidth,height=0.18\textheight,keepaspectratio]{Pictures/Robots/reachy.jpeg} &
+            \includegraphics[width=0.17\textwidth,height=0.18\textheight,keepaspectratio]{Pictures/Robots/davinci.jpg} &
+            \includegraphics[width=0.17\textwidth,height=0.18\textheight,keepaspectratio]{Pictures/Robots/scara.jpg} \\[0.05cm]
+            \includegraphics[width=0.17\textwidth,height=0.18\textheight,keepaspectratio]{Pictures/Robots/NASA_Mars_Rover.jpg} &
+            \includegraphics[width=0.17\textwidth,height=0.18\textheight,keepaspectratio]{Pictures/Robots/mavic.png} &
+            \includegraphics[width=0.17\textwidth,height=0.18\textheight,keepaspectratio]{Pictures/Robots/oceanone.jpg} &
+            \includegraphics[width=0.17\textwidth,height=0.18\textheight,keepaspectratio]{Pictures/Robots/amazon_robot.jpeg} &
+            \includegraphics[width=0.12\textwidth,height=0.18\textheight,keepaspectratio]{Pictures/Robots/chatbot.jpeg} \\[0.05cm]
+            \includegraphics[width=0.17\textwidth,height=0.18\textheight,keepaspectratio]{Pictures/Robots/neo_robot.jpg} &
+            \includegraphics[width=0.17\textwidth,height=0.18\textheight,keepaspectratio]{Pictures/Robots/mixer02.jpg} &
+            \includegraphics[width=0.17\textwidth,height=0.18\textheight,keepaspectratio]{Pictures/Robots/openduck.jpg} &
+            \includegraphics[width=0.17\textwidth,height=0.18\textheight,keepaspectratio]{Pictures/Robots/exxact.jpg} &
+            \includegraphics[width=0.17\textwidth,height=0.18\textheight,keepaspectratio]{Pictures/Robots/rob.png}
+        \end{tabular}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Définition\only<2->{\textbf{S}}}
+    
+    \begin{block}{Définition de l'ancienne enseignante de ce cours}
+    Un robot est un dispositif se comportant de manière automatique doté de capteurs et d'effecteurs lui donnant une capacité d'adaptation et de déplacement proche de l'autonomie. Un robot est un agent physique réalisant des tâches dans l'environnement dans lequel il évolue.
+    \end{block}
+
+    \pause
+
+    \begin{block}{Définition d'un autre professeur de robotique}
+        Système mécanique, poly-articulé, actionné, équipé de capteurs et dont le comportement est commandé automatiquement par un calculateur (re)programmable.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Caractéristiques d'un robot}
+    \framesubtitle{L'architecture}
+
+    \begin{itemize}
+        \item Robot sériel (bras manipulateur, scara\ldots)
+        \item Robot parallèle (robot delta, robot à câble\ldots)
+        \item Robot hybride (humanoïde, quadrupède\ldots) 
+        \item Robot mobile (terrestre ou aérien)
+    \end{itemize}
+    
+    \vspace{0.5em}
+    
+    Type de moteurs : hydraulique, électrique, pneumatique
+    
+    \vspace{0.5em}
+    
+    \begin{figure}
+        \centering
+        \begin{tabular}{@{}c@{\hspace{0.15cm}}c@{\hspace{0.15cm}}c@{\hspace{0.15cm}}c@{}}
+            \includegraphics[width=0.22\textwidth,height=0.28\textheight,keepaspectratio]{Pictures/Structures/seriel.png} &
+            \includegraphics[width=0.22\textwidth,height=0.28\textheight,keepaspectratio]{Pictures/Structures/parallele.jpg} &
+            \includegraphics[width=0.22\textwidth,height=0.28\textheight,keepaspectratio]{Pictures/Structures/hybride.jpg} &
+            \includegraphics[width=0.22\textwidth,height=0.28\textheight,keepaspectratio]{Pictures/Structures/mobile.jpeg} \\
+            \small Sérielle & \small Parallèle & \small Hybride & \small Mobile
+        \end{tabular}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Degrés de liberté et limites}
+
+    \begin{block}{Degrés de liberté (DoF)}
+        
+        Le nombre de degrés de liberté (DoF) d'un robot sériel est le nombre d'actionneurs indépendants qu'il possède. Ce nombre définit la capacité de mouvement du robot dans son espace de travail.
+
+    \end{block}
+
+    \begin{figure}
+        \centering
+        \includegraphics[height=0.35\textheight]{Pictures/transfo_dof.png}
+    \end{figure}
+
+    \begin{table}
+        \centering
+        \scriptsize
+        \begin{tabular}{@{}p{0.48\textwidth} p{0.48\textwidth}@{}}
+            \textbf{Espace cartésien (monde)} & \textbf{Espace articulaire} \\ \hline\addlinespace[0.2em]
+            Limite de l'espace de travail & Butées articulaires \\ \addlinespace[0.2em]
+            Limites en vitesse et accélération cartésienne & Limites en vitesse et accélération des actionneurs \\
+            Limites de charge & Limites de couple des actionneurs \\
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Caractéristiques d'un robot}
+    \framesubtitle{Espace de travail et limites}
+    \begin{figure}
+        \centering
+        \includegraphics[height=0.8\textheight]{Pictures/espace_travail.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Caractéristiques d'un robot}
+    \framesubtitle{Capacité de charge maximales et utiles}
+    \begin{exampleblock}{Charges}
+        \begin{description}
+            \item[Charge maximale] : charge que le robot peut théoriquement soulever dans des conditions idéales.
+            \item[Charge utile] : charge que le robot peut soulever en tenant compte de sa configuration, des contraintes dynamiques, de l'usure des composants et de la sécurité.
+        \end{description}
+    \end{exampleblock}
+
+    \begin{figure}
+        \centering
+        \begin{tabular}{@{}c@{\hspace{0.5cm}}c@{\hspace{0.5cm}}c@{}}
+            \includegraphics[width=0.28\textwidth,height=0.25\textheight,keepaspectratio]{Pictures/irb8700.png} &
+            \includegraphics[width=0.28\textwidth,height=0.25\textheight,keepaspectratio]{Pictures/ur5.png} &
+            \includegraphics[width=0.40\textwidth,height=0.30\textheight,keepaspectratio]{Pictures/ur5_payload.png} \\
+            \small irb8700 (ABB) & \small UR 5e & \small UR 5e Charge utile \\
+            Charge maximale 1000 kg &  & \\
+            Charge utile 800 kg &  & \\
+        \end{tabular}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}{Caractéristiques d'un robot}
+    \framesubtitle{Répétabilité et Précision}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.4\textwidth]{Pictures/prec_rep.jpg}
+    \end{figure}
+
+    Les imprécisions d'un robot :
+    \begin{columns}[t]
+        \begin{column}{0.48\textwidth}
+            \begin{itemize}
+                \item Mauvaise calibration
+                \item Mauvaise commande / modélisation
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \begin{itemize}
+                \item Jeu dans les articulations
+                \item Usure et déformation
+            \end{itemize}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}{Caractéristiques d'un robot}
+    \framesubtitle{Capteurs associés}
+
+    \begin{table}
+        \centering
+        \scriptsize
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{Encodeur} & \textbf{Capteur de force} \\
+            \includegraphics[width=0.4\textwidth,height=0.15\textheight,keepaspectratio]{Pictures/Sensors/encodeur.jpeg} & 
+            \includegraphics[width=0.4\textwidth,height=0.15\textheight,keepaspectratio]{Pictures/Sensors/forcesensor.jpg} \\
+            Position articulaire & Mesure des forces d'interaction \\
+            \hline
+            \textbf{LiDAR} & \textbf{Caméra 3D (Kinect)} \\
+            \includegraphics[width=0.4\textwidth,height=0.15\textheight,keepaspectratio]{Pictures/Sensors/lidar.png} & 
+            \includegraphics[width=0.4\textwidth,height=0.15\textheight,keepaspectratio]{Pictures/Sensors/kinect-v2.jpg} \\
+            Cartographie et détection & Vision et perception 3D \\
+            \hline
+            \textbf{Barrière immatérielle} & \textbf{Cage de sécurité} \\
+            \includegraphics[width=0.4\textwidth,height=0.15\textheight,keepaspectratio]{Pictures/Sensors/barriere-immaterielle.jpg} & 
+            \includegraphics[width=0.4\textwidth,height=0.15\textheight,keepaspectratio]{Pictures/Sensors/cage.jpg} \\
+            Détection de présence & Protection physique \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+
+\begin{frame}{Facteurs de choix d'un robot}
+    \begin{enumerate}
+        \item Type de robot (sériel, parallèle, mobile, hybride)
+        \item Degrés de liberté nécessaires
+        \item Espace de travail requis
+        \item Capacité de charge utile
+        \item Précision et répétabilité
+        \item Vitesse et accélération
+        \item Type d'actionneurs (électrique, hydraulique, pneumatique)
+        \item Environnement de travail (intérieur, extérieur, conditions extrêmes)
+    \end{enumerate}
+    
+\end{frame}
